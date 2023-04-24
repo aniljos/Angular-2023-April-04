@@ -12,3 +12,11 @@ var z; // type annotation (number)
 z = 50;
 //z = "100";
 console.log("z: ", z);
+var user;
+console.log("user: ", user);
+user = { id: 1, name: "Anil" };
+console.log("user: ", user);
+var test = { id: 1, name: "AJ" };
+var product;
+product = [1, "Prd1", 2000];
+console.log("products", product);
