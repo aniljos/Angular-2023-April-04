@@ -13,7 +13,7 @@ class Car implements Vehicle{
     speed: number;
     gears: number;
 
-    //constructor declartion(*)
+    //constructor declartions(*)
     constructor();
     constructor(name: string, speed: number);
     constructor(name: string, speed: number, gears: number);
