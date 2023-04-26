@@ -1,0 +1,34 @@
+<h3>Data Binding</h3>
+
+<h4>
+    <h3>Interpolation</h3>
+    Name: {{name}}
+</h4>
+<div>
+    {{"Sum of 5 and 6: " + (5 + 6)}}
+</div>
+
+<div>
+    <h3>Property Binding</h3>
+    <input type="number" [value]="count"/>
+    <span>Count: {{count}}</span>
+</div>
+<br/>
+<div>
+    <h3>Event Binding</h3>
+    <button (click)="inc($event)">Increment Count</button>
+</div>
+
+<br/>
+
+<div>
+    <h3>2 - way Binding(ngModel)</h3>
+    <input [(ngModel)]="message"/>
+    <span>Message: {{message}}</span>
+</div>
+
+<div>
+    <h3>2 - way Binding(without ngModel)</h3>
+    <input type="number" [value]="count" 
+                (input)="setCount($event)"/>
+</div>
