@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import {HelloComponent} from './hello/hello.component';
 import { DataBindingComponent } from './data-binding/data-binding.component';
 import { FormsModule } from '@angular/forms';
+import { ProductModule } from './product/product.module';
 
 
 @NgModule({
@@ -12,7 +13,7 @@ import { FormsModule } from '@angular/forms';
     AppComponent, HelloComponent, DataBindingComponent
   ],
   imports: [
-    BrowserModule, FormsModule
+    BrowserModule, FormsModule,ProductModule
   ],
   providers: [],
   bootstrap: [AppComponent]

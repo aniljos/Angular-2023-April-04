@@ -38,3 +38,20 @@
 4. They have to be part of a module.
 5. Use the selector to render the component.
 
+### Template Variable
+
+1. Varibale decalred/created in the View(template) of the component
+2. #variable is the syntax
+
+
+### Change Detection
+
+1. A mechanism to detect changes in the View/Component and update the UI
+
+### Template
+
+1. Template is compiled to the view
+2. Angularjs compilation was at run-time.
+3. Angular uses a AOT compiler(build phase)
+4. Angular 8 introduced a new version of the compiler called the Ivy compiler
+
