@@ -62,3 +62,10 @@
 3. Angular its uses Rxjs observables
 4. If the response is JSON, its automatically unmarshalled to a javaScript object
 5. If the request posts JSON, its automatically marshalled to a javaScript object
+
+### Arrow Functions(Lambdas)
+
+1. Alternative to Function expressions
+2. More concise syntax
+3. Its used for functional and asynchronous programming
+4. Diff from functions expressions: Arrow fns do not revice the implicit args(this, arguments)
