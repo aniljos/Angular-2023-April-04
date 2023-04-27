@@ -55,3 +55,10 @@
 3. Angular uses a AOT compiler(build phase)
 4. Angular 8 introduced a new version of the compiler called the Ivy compiler
 
+### Http Calls
+
+1. These calls are asynchronous.
+2. 3 ways in which to handle the result: callbacks(functions), promise(object), observable(rxjs)
+3. Angular its uses Rxjs observables
+4. If the response is JSON, its automatically unmarshalled to a javaScript object
+5. If the request posts JSON, its automatically marshalled to a javaScript object
