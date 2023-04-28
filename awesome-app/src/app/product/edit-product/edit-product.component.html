@@ -1,1 +1,23 @@
-<h4>Edit Product</h4>
+<h4>Edit Product : {{productId}}</h4>
+
+<div>
+    <div>
+        <label>Name</label>
+        <input class="form-control" placeholder="Name" [(ngModel)]="product!.name"/>
+    </div>
+    <div>
+        <label>Description</label>
+        <input class="form-control" placeholder="Description" [(ngModel)]="product!.description"/>
+    </div>
+
+    <div>
+        <label>Price</label>
+        <input class="form-control" type="number" placeholder="Price" [(ngModel)]="product!.price"/>
+    </div>
+    <br/>
+    <div>
+        <button class="btn btn-success">Save</button>&nbsp;
+        <button class="btn btn-warning">Cancel</button>
+    </div>
+
+</div>

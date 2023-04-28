@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Product } from '../../model/Product';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-list-products',
@@ -15,7 +16,7 @@ export class ListProductsComponent {
 
   //Dependency injection of httpClinet(HttpClientModule is 
   //imported in the Products Module)
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private router: Router) {
 
     this.url = "http://localhost:9000/products";
     this.fetchProducts();
@@ -86,6 +87,7 @@ export class ListProductsComponent {
   }
 
   editProduct(product: Product){
-
+    
+      this.router.navigate(["/products", product.id], {state: {product}});
   }
 }
