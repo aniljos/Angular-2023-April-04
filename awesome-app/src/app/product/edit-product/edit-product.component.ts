@@ -30,4 +30,13 @@ export class EditProductComponent {
                 }
               })  
   }
+
+  save(){
+
+  }
+
+  cancel(){
+    
+  }
+
 }
