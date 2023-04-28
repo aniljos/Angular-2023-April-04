@@ -69,3 +69,10 @@
 2. More concise syntax
 3. Its used for functional and asynchronous programming
 4. Diff from functions expressions: Arrow fns do not revice the implicit args(this, arguments)
+
+### Routes
+
+1. Route configuration
+2. Child Routes
+3. Router Guards
+4. Multiple Router-outlets
