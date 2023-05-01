@@ -76,3 +76,12 @@
 2. Child Routes
 3. Router Guards
 4. Multiple Router-outlets
+
+### Assignment
+
+1. Implement the save(update) on the EditProductComponent
+2. Implement the navigation back using the Location Service(angualr common)--> Dependency injection
+3. Create a new module for customers
+4. Create a component for listing all the customers
+5. Navigate to this component app component
+
