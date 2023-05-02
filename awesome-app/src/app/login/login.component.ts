@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {environment} from '../../environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,10 +15,12 @@ export class LoginComponent {
   loginformGroup: FormGroup;
   userNameFormControl: FormControl;
   errorMessage: string = "";
-  message:string = ""
+  message:string = "";
+  url: string;
 
-  constructor(){
+  constructor(private httpClient: HttpClient, private router: Router){
 
+    this.url = environment.baseUrl + "login";
     this.userNameFormControl = new FormControl("", [Validators.required], [])
 
     this.loginformGroup = new FormGroup({
@@ -33,9 +38,29 @@ export class LoginComponent {
 
         const userName = this.userNameFormControl.value;
         const password = this.loginformGroup.get('pwd')?.value;
-        console.log("UserName, Password", userName,password);
-        this.errorMessage = "";
-        this.message = "Valid Inputs"
+        // var loginInput = {
+        //     name: userName,
+        //     password: password
+        // };
+        this.httpClient
+                .post(this.url, {name: userName, password: password})
+                .subscribe({
+                  next: () => {
+
+                    this.errorMessage = "";
+                    this.message = "Valid Inputs";
+                    this.router.navigate(["/products"]);
+                  },
+                  error: () => {
+                      this.errorMessage = "Invalid Credentials";
+                      this.message = ""
+                  }
+                })
+
+
+        
+
+
         
       }
       else{

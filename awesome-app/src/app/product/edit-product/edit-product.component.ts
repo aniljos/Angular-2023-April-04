@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../../model/Product';
+import { FormGroup, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-product',
@@ -12,6 +13,9 @@ export class EditProductComponent {
 
   public productId: number;
   public product: Product|null = null;
+  
+  @ViewChild("myForm")
+  public ngForm!:NgForm;
 
   constructor(private activatedRoute: ActivatedRoute, 
             private router: Router, private httpClient: HttpClient){
@@ -32,7 +36,7 @@ export class EditProductComponent {
   }
 
   save(){
-
+    console.log("ngForm", this.ngForm);
   }
 
   cancel(){

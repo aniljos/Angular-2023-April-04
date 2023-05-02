@@ -9,12 +9,15 @@ import { ProductModule } from './product/product.module';
 import {Routes, RouterModule} from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
  
   {path: "home", component: HelloComponent},
   {path: "databinding", component: DataBindingComponent},
   {path: "login", component: LoginComponent},
+  {path: "search", component: SearchComponent},
   {path: "", redirectTo: "/home", pathMatch:"full"},
   {path: "**", component: NotFoundComponent}
   
@@ -22,10 +25,15 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent, HelloComponent, DataBindingComponent, NotFoundComponent, LoginComponent
+    AppComponent, HelloComponent, DataBindingComponent, NotFoundComponent, LoginComponent, SearchComponent
   ],
   imports: [
-    BrowserModule, FormsModule,ProductModule, RouterModule.forRoot(routes), ReactiveFormsModule
+    BrowserModule, 
+    FormsModule,
+    ProductModule, 
+    RouterModule.forRoot(routes), 
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
