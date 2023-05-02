@@ -1,23 +1,37 @@
 <h4>Edit Product : {{productId}}</h4>
 
-<div>
+<!-- using form and ngModel on the controls, this creates the templated forms -->
+<!-- FormGroup -->
+<form #myForm="ngForm">
     <div>
-        <label>Name</label>
-        <input class="form-control" placeholder="Name" [(ngModel)]="product!.name"/>
-    </div>
-    <div>
-        <label>Description</label>
-        <input class="form-control" placeholder="Description" [(ngModel)]="product!.description"/>
-    </div>
+        <div>
+            <label>Name</label>
+            <!-- FormControl(key:pname) -->
+            <input id="nm" name="pname" class="form-control" placeholder="Name" [(ngModel)]="product!.name" 
+                                required pattern="[A-Za-z0-9]{3,}" #cname="ngModel"/>
+            <div *ngIf="cname.hasError('required')"  class="alert alert-warning">The field is required</div>
+            <div *ngIf="cname.hasError('pattern')" class="alert alert-warning">The pattern([A-Za-z0-9]) must match</div>
+            <!-- <div *ngIf="myForm.get('pname').hasError('pattern')" class="alert alert-warning">The pattern([A-Za-z0-9]) must match</div> -->
+        </div>
+        <div>
+            <label>Description</label>
+            <!-- FormControl(key:pdesc) -->
+            <input name="pdesc" class="form-control" placeholder="Description" 
+                            [(ngModel)]="product!.description" required #cdesc="ngModel"/>
+            <div class="alert alert-warning" *ngIf="cdesc.invalid">The field is required</div>
+        </div>
 
-    <div>
-        <label>Price</label>
-        <input class="form-control" type="number" placeholder="Price" [(ngModel)]="product!.price"/>
-    </div>
-    <br/>
-    <div>
-        <button class="btn btn-success" (click)="save()">Save</button>&nbsp;
-        <button class="btn btn-warning" (click)="cancel()">Cancel</button>
-    </div>
+        <div>
+            <label>Price</label>
+            <!-- FormControl(key:pprice) -->
+            <input name="pprice" class="form-control" type="number" placeholder="Price" [(ngModel)]="product!.price"/>
+        </div>
+        <br/>
+        
+        <div>
+            <button class="btn btn-success" (click)="save()" [disabled]="myForm.invalid || myForm.pristine">Save</button>&nbsp;
+            <button class="btn btn-warning" (click)="cancel()">Cancel</button>
+        </div>
 
-</div>
+    </div>
+</form>
