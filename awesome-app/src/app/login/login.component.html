@@ -1,19 +1,25 @@
 
 <h3>Login</h3>
 
-<div>
-<div class="mb-3">
-    <label for="username" class="form-label">User Name</label>
-    <input type="text" class="form-control" id="username" placeholder="User Name">
-</div>
+<div *ngIf="errorMessage" class="alert alert-danger">{{errorMessage}}</div>
+<div *ngIf="message" class="alert alert-success">{{message}}</div>
 
-<div class="mb-3">
-    <label for="password" class="form-label">Password</label>
-    <input type="password" class="form-control" id="password" placeholder="********">
-</div>
 
-<div class="mb-3">
-    <button class="btn btn-success">Login</button>
-</div>
+<div [formGroup]="loginformGroup">
+
+    <div class="mb-3">
+        <label for="username" class="form-label">User Name</label>
+        <input type="text" class="form-control" id="username" 
+                        placeholder="User Name" formControlName="uname">
+    </div>
+
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="********" formControlName="pwd">
+    </div>
+
+    <div class="mb-3">
+        <button (click)="login()" class="btn btn-success">Login</button>
+    </div>
 
 </div>
