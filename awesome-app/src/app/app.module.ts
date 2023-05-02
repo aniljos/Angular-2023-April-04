@@ -8,11 +8,13 @@ import { FormsModule } from '@angular/forms';
 import { ProductModule } from './product/product.module';
 import {Routes, RouterModule} from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
  
   {path: "home", component: HelloComponent},
   {path: "databinding", component: DataBindingComponent},
+  {path: "login", component: LoginComponent},
   {path: "", redirectTo: "/home", pathMatch:"full"},
   {path: "**", component: NotFoundComponent}
   
@@ -20,7 +22,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent, HelloComponent, DataBindingComponent, NotFoundComponent
+    AppComponent, HelloComponent, DataBindingComponent, NotFoundComponent, LoginComponent
   ],
   imports: [
     BrowserModule, FormsModule,ProductModule, RouterModule.forRoot(routes)
