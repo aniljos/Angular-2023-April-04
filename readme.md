@@ -97,4 +97,17 @@
 1. Observables are lazy: will be executed only if you subscribe to it.
 2. Every subscriber the observable is executed again.
 3. One publisher(Subject) and multiple subscriber
+4. Subject, ReplaySubject, BehaviorSubject
+
+
+### Async Methods
+
+1. Observable(Rxjs)
+2. Promises
+3. Callbacks
+
+### Gadget Module
+
+1. Child Routes
+2. Service: Implement API calls
 
