@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {interval} from 'rxjs';
+import {ReplaySubject, Subject, interval, BehaviorSubject} from 'rxjs';
 import {filter, map, debounceTime, take, tap} from 'rxjs/operators';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpParams } from '@angular/common/http';
@@ -34,7 +34,36 @@ export class SearchComponent implements OnInit {
           //   //This is the output
           //   console.log("In subscribe #2: ", value);
           // });
+
+          this.subjectDemo();
   }
+
+  subjectDemo(){
+
+    //const subject = new Subject<number>();
+    //const subject = new ReplaySubject<number>();
+    const subject = new BehaviorSubject(0);
+
+    subject.subscribe((data) => {
+      console.log("subscirber 1", data);
+    });
+    subject.subscribe((data) => {
+      console.log("subscirber 2", data);
+    })
+
+    subject.next(10);
+    subject.next(20);
+    subject.next(30);
+
+    subject.subscribe((data) => {
+      console.log("subscirber 3", data);
+    });
+
+    subject.next(40);
+    subject.next(50);
+
+  }
+
 
   ngOnInit(): void {
     

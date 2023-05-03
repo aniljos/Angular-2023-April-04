@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { GadgetService } from '../gadget.service';
+import { CartItem } from '../../model/CartItem'
 
 @Component({
   selector: 'app-view-cart',
@@ -7,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class ViewCartComponent {
 
+  public cart: Array<CartItem> = []
+  constructor(private service: GadgetService){
+
+    //this.cart = service.getCart();
+    service.cartSubject.subscribe((cart) => {
+      this.cart = cart;
+    })
+
+  }
 }
