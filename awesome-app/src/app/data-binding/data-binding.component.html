@@ -37,4 +37,14 @@
     <h3>2 - way Binding(without ngModel)</h3>
     <input type="number" [value]="count" (input)="setCount($event)" />
   </div>
+
+  <div>
+    <h3>Colors</h3>
+    Red: <input type="checkbox" [(ngModel)]="favoriteColors.red" name="red"/>
+    Green: <input type="checkbox" [(ngModel)]="favoriteColors.green" name="red"/>
+    Blue: <input type="checkbox" [(ngModel)]="favoriteColors.blue" name="red"/>
+
+  </div>
 </div>
+
+{{favoriteColors|json}}

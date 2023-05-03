@@ -85,3 +85,16 @@
 4. Create a component for listing all the customers
 5. Navigate to this component app component
 
+### Environment
+
+1. Config files for differet environments: dev, production, etc
+2. ng serve -- loads the dev environment
+3. ng build(prod) -- loads the prod environment 
+4. ng generate environments --dry-run
+
+### Observable
+
+1. Observables are lazy: will be executed only if you subscribe to it.
+2. Every subscriber the observable is executed again.
+3. One publisher(Subject) and multiple subscriber
+
