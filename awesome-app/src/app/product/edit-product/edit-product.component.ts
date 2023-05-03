@@ -11,7 +11,7 @@ import { FormGroup, NgForm } from '@angular/forms';
 })
 export class EditProductComponent {
 
-  public productId: number;
+  public productId!: number;
   public product: Product|null = null;
   
   @ViewChild("myForm")
@@ -20,7 +20,15 @@ export class EditProductComponent {
   constructor(private activatedRoute: ActivatedRoute, 
             private router: Router, private httpClient: HttpClient){
 
-    this.productId = activatedRoute.snapshot.params["id"];
+    //this.productId = activatedRoute.snapshot.params["id"];
+    
+    activatedRoute.params.subscribe({
+      next: (value) => {
+        this.productId = value["id"];
+      }
+    })
+
+
     //console.log(this.router.getCurrentNavigation()?.extras.state);
     
         this.httpClient

@@ -12,6 +12,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 export class SearchComponent implements OnInit {
 
   public formGroup!: FormGroup;
+  public results: Array<string> = [];
 
   constructor(private httpClient: HttpClient){
        
@@ -42,8 +43,7 @@ export class SearchComponent implements OnInit {
     });
 
     this.formGroup
-              .get('search')
-              ?.valueChanges
+              .get('search')?.valueChanges
               .pipe(
                 debounceTime(1000)
               )
@@ -57,11 +57,32 @@ export class SearchComponent implements OnInit {
                                         .set("limit", "20")
                                         .set("search", value);
 
+                // this.httpClient
+                //       .get(url, {params: queryParams})
+                //       .subscribe({
+                //         next: (data) => {
+                //             console.log("data", data);
+                //         }
+                // });
+
+                //observe: 'response' or 'body'(default)
+                // this.httpClient
+                //       .get(url, {params: queryParams, observe: 'response'})
+                //       .subscribe({
+                //         next: (response) => {
+                //             console.log("response", response);
+                //         }
+                // });
+
                 this.httpClient
-                      .get(url, {params: queryParams})
+                      .get<any>(url, {params: queryParams})
+                      .pipe(
+                        map(data => data[1])
+                      )
                       .subscribe({
                         next: (data) => {
                             console.log("data", data);
+                            this.results = data;
                         }
                 });
 

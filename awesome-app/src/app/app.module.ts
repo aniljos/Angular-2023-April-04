@@ -11,6 +11,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './search/search.component';
+import { UserService } from './user.service';
+import { TokenService } from './token.service';
+import { GadgetsModule } from './gadgets/gadgets.module';
 
 const routes: Routes = [
  
@@ -33,9 +36,10 @@ const routes: Routes = [
     ProductModule, 
     RouterModule.forRoot(routes), 
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    GadgetsModule
   ],
-  providers: [],
+  providers: [{provide: UserService, useClass: TokenService}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

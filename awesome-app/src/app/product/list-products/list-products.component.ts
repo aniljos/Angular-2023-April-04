@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Product } from '../../model/Product';
 import {Router} from "@angular/router";
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-list-products',
@@ -16,9 +17,9 @@ export class ListProductsComponent {
 
   //Dependency injection of httpClinet(HttpClientModule is 
   //imported in the Products Module)
-  constructor(private httpClient: HttpClient, private router: Router) {
+  constructor(private httpClient: HttpClient, private router: Router, private userService: UserService) {
 
-    this.url = "http://localhost:9000/products";
+    this.url = "http://localhost:9000/secure_products";
     this.fetchProducts();
 
   }
@@ -28,7 +29,13 @@ export class ListProductsComponent {
     // Response ==> status code
     // Status code ==> 100, 200, 300 --> success
     // Status code ==> 400, 500 -> error
-    this.httpClient.get<Array<Product>>(this.url)
+
+    //Authorization: Bearer {token}
+
+    //const headers1 = {Authorization: "Bearer " + this.userService.getAccessToken};
+    //using a string template
+    const headers = {Authorization: `Bearer ${this.userService.getAccessToken()}`}
+    this.httpClient.get<Array<Product>>(this.url, {headers: headers})
       // .subscribe((result) => {
       //   console.log("result ", result);
       //   this.products = result;
