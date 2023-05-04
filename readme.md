@@ -74,7 +74,7 @@
 
 1. Route configuration
 2. Child Routes
-3. Router Guards
+3. Router Guards - Services
 4. Multiple Router-outlets
 
 ### Assignment
@@ -102,12 +102,20 @@
 
 ### Async Methods
 
-1. Observable(Rxjs)
-2. Promises
-3. Callbacks
+1. Observable(Rxjs) - Ng Default
+2. Promises - JS Default
+3. Callbacks - Underlying mechanism
 
 ### Gadget Module
 
 1. Child Routes
 2. Service: Implement API calls
+
+
+### Optimization
+
+1. Lazy loading of modules: Split the bundles(Code spliting)
+2. Lazy loading of modules: optization of the app startup and the file size
+
+
 
