@@ -15,6 +15,7 @@ export class ListProductsComponent {
   public newProduct: Product = new Product();
   private url: string;
   public selectedProduct: Product|null = null;
+  public searchKey: string="";
 
   //Dependency injection of httpClinet(HttpClientModule is 
   //imported in the Products Module)
@@ -101,5 +102,16 @@ export class ListProductsComponent {
 
   viewProduct(product: Product){
     this.selectedProduct = product;
+  }
+
+  onEditCancel(message: string){
+
+    alert("cancelled" +  message)
+    this.selectedProduct = null;
+  }
+
+  onEditSaved(updatedProduct: Product){
+
+    alert("updated" +  updatedProduct.id);
   }
 }

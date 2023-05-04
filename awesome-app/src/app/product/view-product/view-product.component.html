@@ -1,22 +1,22 @@
-<h4>View Product</h4>
+<h4>View Product: {{currentProduct.id}}</h4>
 
 
 <div class="form-group">
     <label>Name</label>
-    <input class="form-control" placeholder="Name"/>
+    <input class="form-control" placeholder="Name"  [(ngModel)]="temp.name"/>
 </div>
 
 <div class="form-group">
     <label>Desc</label>
-    <input class="form-control" placeholder="Desc"/>
+    <input class="form-control" placeholder="Desc" [(ngModel)]="temp.description"/>
 </div>
 
 <div class="form-group">
     <label>Price</label>
-    <input class="form-control" placeholder="Price"/>
+    <input class="form-control" placeholder="Price" [(ngModel)]="temp.price"/>
 </div>
 
 <div>
-    <button class="btn btn-success">Save</button>
-    <button class="btn btn-danger">Cancel</button>
+    <button class="btn btn-success" (click)="save()">Save</button>
+    <button class="btn btn-danger" (click)="cancel()">Cancel</button>
 </div>

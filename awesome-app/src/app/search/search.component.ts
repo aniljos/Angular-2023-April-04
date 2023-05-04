@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ReplaySubject, Subject, interval, BehaviorSubject} from 'rxjs';
+import {ReplaySubject, Subject, interval, BehaviorSubject, Observable} from 'rxjs';
 import {filter, map, debounceTime, take, tap} from 'rxjs/operators';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpParams } from '@angular/common/http';
@@ -13,6 +13,8 @@ export class SearchComponent implements OnInit {
 
   public formGroup!: FormGroup;
   public results: Array<string> = [];
+
+  public $results!: Observable<Array<string>>;
 
   constructor(private httpClient: HttpClient){
        
@@ -103,21 +105,28 @@ export class SearchComponent implements OnInit {
                 //         }
                 // });
 
-                this.httpClient
+                // this.httpClient
+                //       .get<any>(url, {params: queryParams})
+                //       .pipe(
+                //         map(data => data[1])
+                //       )
+                //       .subscribe({
+                //         next: (data) => {
+                //             console.log("data", data);
+                //             this.results = data;
+                //         }
+                // });
+
+                this.$results = this.httpClient
                       .get<any>(url, {params: queryParams})
                       .pipe(
                         map(data => data[1])
                       )
-                      .subscribe({
-                        next: (data) => {
-                            console.log("data", data);
-                            this.results = data;
-                        }
                 });
 
 
 
-          });
+          
 
   }
 

@@ -9,6 +9,7 @@ import { EditProductComponent } from './edit-product/edit-product.component';
 import { AuthGuardService } from '../auth-guard.service';
 import { AuthGuardFn } from '../auth-guard-fn';
 import { ViewProductComponent } from './view-product/view-product.component';
+import { ProductFilterPipe } from './product-filter.pipe';
 
 const routes: Routes = [
   {path: "products", component: ListProductsComponent},
@@ -19,7 +20,8 @@ const routes: Routes = [
   declarations: [
     ListProductsComponent,
     EditProductComponent,
-    ViewProductComponent
+    ViewProductComponent,
+    ProductFilterPipe
   ],
   imports: [
     CommonModule, HttpClientModule, FormsModule, RouterModule.forChild(routes)

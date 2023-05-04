@@ -6,7 +6,12 @@
 
 <div>
     <!-- Results -->
-    <div *ngFor="let item of results">
+    <!-- <div *ngFor="let item of results">
+        <p>{{item}}</p>
+    </div> -->
+
+
+    <div *ngFor="let item of $results | async">
         <p>{{item}}</p>
     </div>
 </div>
