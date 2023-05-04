@@ -8,6 +8,7 @@ import {Routes, RouterModule} from '@angular/router';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { AuthGuardService } from '../auth-guard.service';
 import { AuthGuardFn } from '../auth-guard-fn';
+import { ViewProductComponent } from './view-product/view-product.component';
 
 const routes: Routes = [
   {path: "products", component: ListProductsComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     ListProductsComponent,
-    EditProductComponent
+    EditProductComponent,
+    ViewProductComponent
   ],
   imports: [
     CommonModule, HttpClientModule, FormsModule, RouterModule.forChild(routes)

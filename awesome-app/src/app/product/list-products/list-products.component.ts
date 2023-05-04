@@ -100,8 +100,6 @@ export class ListProductsComponent {
   }
 
   viewProduct(product: Product){
-
-    
     this.selectedProduct = product;
   }
 }
