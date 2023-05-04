@@ -59,6 +59,7 @@ export class GadgetService {
   addToCart(item: CartItem){
     this.cart.push(item);
 
+    //publish
     this.cartSubject.next([...this.cart]);
   }
 

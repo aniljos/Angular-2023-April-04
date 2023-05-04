@@ -6,10 +6,12 @@ import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import {Routes, RouterModule} from '@angular/router';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { AuthGuardService } from '../auth-guard.service';
+import { AuthGuardFn } from '../auth-guard-fn';
 
 const routes: Routes = [
   {path: "products", component: ListProductsComponent},
-  {path: "products/:id", component: EditProductComponent}
+  {path: "products/:id", component: EditProductComponent, canActivate: [AuthGuardFn]}
 ]
 
 @NgModule({

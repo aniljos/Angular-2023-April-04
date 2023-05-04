@@ -14,12 +14,13 @@ export class ListProductsComponent {
   public products: Array<Product> = new Array<Product>();
   public newProduct: Product = new Product();
   private url: string;
+  public selectedProduct: Product|null = null;
 
   //Dependency injection of httpClinet(HttpClientModule is 
   //imported in the Products Module)
   constructor(private httpClient: HttpClient, private router: Router, private userService: UserService) {
 
-    this.url = "http://localhost:9000/secure_products";
+    this.url = "http://localhost:9000/products";
     this.fetchProducts();
 
   }
@@ -96,5 +97,11 @@ export class ListProductsComponent {
   editProduct(product: Product){
     
       this.router.navigate(["/products", product.id], {state: {product}});
+  }
+
+  viewProduct(product: Product){
+
+    
+    this.selectedProduct = product;
   }
 }

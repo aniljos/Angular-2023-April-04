@@ -8,7 +8,7 @@ import { GadgetService } from './gadget.service';
 import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
-  {path: "gadgets", component: MainComponent, children: [
+  {path: "", component: MainComponent, children: [
     {path: "store", component: StoreComponent},
     {path: "cart", component: ViewCartComponent}
   ]}

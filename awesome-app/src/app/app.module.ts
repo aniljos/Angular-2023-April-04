@@ -13,14 +13,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './search/search.component';
 import { UserService } from './user.service';
 import { TokenService } from './token.service';
-import { GadgetsModule } from './gadgets/gadgets.module';
+//import { GadgetsModule } from './gadgets/gadgets.module'; ==> static import
+import { AuthGuardFn } from './auth-guard-fn';
 
+//  () => import('./gadgets/gadgets.module').then(m => m.GadgetsModule)}, ==> dynamic import
 const routes: Routes = [
  
   {path: "home", component: HelloComponent},
   {path: "databinding", component: DataBindingComponent},
   {path: "login", component: LoginComponent},
-  {path: "search", component: SearchComponent},
+  {path: "search", component: SearchComponent, canActivate: [AuthGuardFn]},
+  {path: "gadgets", loadChildren: () => import('./gadgets/gadgets.module').then(m => m.GadgetsModule)},
   {path: "", redirectTo: "/home", pathMatch:"full"},
   {path: "**", component: NotFoundComponent}
   
@@ -37,7 +40,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes), 
     ReactiveFormsModule,
     HttpClientModule,
-    GadgetsModule
+    //GadgetsModule
   ],
   providers: [{provide: UserService, useClass: TokenService}],
   bootstrap: [AppComponent]
