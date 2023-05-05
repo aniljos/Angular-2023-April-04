@@ -53,6 +53,7 @@ export class GadgetService {
 
   getProductsWithPromise():Promise<Array<Product>>{
 
+    firstValueFrom(this.httpClient.get<Array<Product>>("http://localhost:9000/customers"));
     return firstValueFrom(this.httpClient.get<Array<Product>>(this.url));
   }
 

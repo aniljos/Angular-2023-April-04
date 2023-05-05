@@ -1,6 +1,15 @@
 <h3>Data Binding</h3>
 
 <div>
+  <h3>Colors</h3>
+  Red: <input type="checkbox" [(ngModel)]="favoriteColors.red" name="red"/>
+  Green: <input type="checkbox" [(ngModel)]="favoriteColors.green" name="red"/>
+  Blue: <input type="checkbox" [(ngModel)]="favoriteColors.blue" name="red"/>
+
+</div>
+{{favoriteColors|json}}
+
+<div>
     Show/Hide: <input type="checkbox" #var1 [ngModel]/>
     <span>var1: {{var1.checked}}</span>
 </div>
@@ -29,8 +38,8 @@
 
   <div>
     <h3>2 - way Binding(ngModel)</h3>
-    <input [(ngModel)]="message" />
-    <span>Message: {{ message }}</span>
+    <input id="msgTB" [(ngModel)]="message" />
+    <span id="msg">Message: {{ message }}</span>
   </div>
 
   <div>
@@ -38,13 +47,7 @@
     <input type="number" [value]="count" (input)="setCount($event)" />
   </div>
 
-  <div>
-    <h3>Colors</h3>
-    Red: <input type="checkbox" [(ngModel)]="favoriteColors.red" name="red"/>
-    Green: <input type="checkbox" [(ngModel)]="favoriteColors.green" name="red"/>
-    Blue: <input type="checkbox" [(ngModel)]="favoriteColors.blue" name="red"/>
-
-  </div>
+  
 </div>
 
-<!-- {{favoriteColors|json}} -->
+
