@@ -1,0 +1,6 @@
+<h2>{{this.data? this.data.title : "Dialog Title"}}</h2>
+<div mat-dialog-content>{{this.data? this.data.content : "Do you want to delete the record?"}}</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onYes()">Yes</button>
+  <button mat-button (click)="onNo()">No</button>
+</div>

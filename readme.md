@@ -118,4 +118,14 @@
 2. Lazy loading of modules: optization of the app startup and the file size
 
 
+### Unit Testing Libraries
+
+1. Jasmine
+2. Mocha
+3. Jest
+
+### E2E Testing Libraries
+
+1. Protractor(Angularjs)
+2. Cypress
 
